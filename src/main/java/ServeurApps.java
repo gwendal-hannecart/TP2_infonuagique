@@ -1,14 +1,14 @@
-import io.grpc.Server;
+import io.grpc.stub.StreamObserver;
 
 
 public class ServeurApps extends TestHelloWorldServiceGrpc.TestHelloWorldServiceImplBase {
-    private int port;
+    //private int port;
 
 
 
-    private Server server;
+    //private Server server;
 
-    public int getPort() {
+   /* public int getPort() {
         return port;
     }
 
@@ -28,8 +28,15 @@ public class ServeurApps extends TestHelloWorldServiceGrpc.TestHelloWorldService
 
         this.port = port;
         this.server = server;
+    }*/
+
+@Override
+    public void testHelloWorld(HelloWorld request, StreamObserver<HelloResponse> responseObserver) {
+    //    super.testHelloWorld(request, responseObserver);
+        String display= new StringBuilder().append("name").append(request.getStrHello()).append("age").append(request.getAge()).append("size").append(request.getSize()).append(request.getWeight()).toString();
+        HelloResponse test= HelloResponse.newBuilder().setResponse(display).build();
+        System.out.println(test.toString());
+        responseObserver.onNext(test);
+        responseObserver.onCompleted();
     }
-
-
-
 }
