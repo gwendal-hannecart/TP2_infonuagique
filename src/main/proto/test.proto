@@ -1,7 +1,8 @@
 syntax = "proto3";
 option java_multiple_files = true;
+option optimize_for = LITE_RUNTIME;
 option java_outer_classname = "Test";
-message TestHelloWorld {
+message HelloWorld {
   string strHello=1;
   int32 age=2;
   float weight=3;
@@ -10,5 +11,5 @@ message TestHelloWorld {
 }
 
 service TestHelloWorldService {
-  rpc Search( TestHelloWorld) returns ( TestHelloWorld);
+  rpc testHelloWorld( HelloWorld) returns ( HelloWorld);
 }

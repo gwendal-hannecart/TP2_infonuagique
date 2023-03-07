@@ -3,6 +3,6 @@
 public class Client {
     public static void main(String[] args) {
         System.out.println("Bonjour");
-        TestHelloWorld test= TestHelloWorld.newBuilder().setAge(14).setSize(14).setStrHello("Bonjour").setWeight(45).build();
+       HelloWorld test= HelloWorld.newBuilder().setAge(14).setSize(14).setStrHello("Bonjour").setWeight(45).build();
     }
 }

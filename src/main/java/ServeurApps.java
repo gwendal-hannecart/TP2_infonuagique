@@ -1,5 +1,7 @@
 import io.grpc.Server;
-public class ServeurApps extends Test {
+
+
+public class ServeurApps extends TestHelloWorldServiceGrpc.TestHelloWorldServiceImplBase {
     private int port;
 
 
@@ -22,6 +24,8 @@ public class ServeurApps extends Test {
         this.server = server;
     }
     public ServeurApps(int port, Server server) {
+        super();
+
         this.port = port;
         this.server = server;
     }
