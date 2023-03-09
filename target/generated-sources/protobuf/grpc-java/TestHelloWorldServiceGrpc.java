@@ -1,8 +1,16 @@
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -54,7 +62,7 @@ public final class TestHelloWorldServiceGrpc {
   public static TestHelloWorldServiceStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceStub>() {
-        @Override
+        @java.lang.Override
         public TestHelloWorldServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TestHelloWorldServiceStub(channel, callOptions);
         }
@@ -69,7 +77,7 @@ public final class TestHelloWorldServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceBlockingStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceBlockingStub>() {
-        @Override
+        @java.lang.Override
         public TestHelloWorldServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TestHelloWorldServiceBlockingStub(channel, callOptions);
         }
@@ -84,7 +92,7 @@ public final class TestHelloWorldServiceGrpc {
       io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceFutureStub> factory =
       new io.grpc.stub.AbstractStub.StubFactory<TestHelloWorldServiceFutureStub>() {
-        @Override
+        @java.lang.Override
         public TestHelloWorldServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
           return new TestHelloWorldServiceFutureStub(channel, callOptions);
         }
@@ -103,7 +111,7 @@ public final class TestHelloWorldServiceGrpc {
       asyncUnimplementedUnaryCall(getTestHelloWorldMethod(), responseObserver);
     }
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getTestHelloWorldMethod(),
@@ -124,7 +132,7 @@ public final class TestHelloWorldServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TestHelloWorldServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TestHelloWorldServiceStub(channel, callOptions);
@@ -147,7 +155,7 @@ public final class TestHelloWorldServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TestHelloWorldServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TestHelloWorldServiceBlockingStub(channel, callOptions);
@@ -169,7 +177,7 @@ public final class TestHelloWorldServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TestHelloWorldServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new TestHelloWorldServiceFutureStub(channel, callOptions);
@@ -199,8 +207,8 @@ public final class TestHelloWorldServiceGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_TEST_HELLO_WORLD:
@@ -212,8 +220,8 @@ public final class TestHelloWorldServiceGrpc {
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
@@ -227,12 +235,12 @@ public final class TestHelloWorldServiceGrpc {
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
     TestHelloWorldServiceBaseDescriptorSupplier() {}
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
       return Test.getDescriptor();
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
       return getFileDescriptor().findServiceByName("TestHelloWorldService");
     }
@@ -252,7 +260,7 @@ public final class TestHelloWorldServiceGrpc {
       this.methodName = methodName;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
       return getServiceDescriptor().findMethodByName(methodName);
     }

@@ -9,7 +9,7 @@ public interface HelloResponseOrBuilder extends
    * <code>string response = 1;</code>
    * @return The response.
    */
-  String getResponse();
+  java.lang.String getResponse();
   /**
    * <code>string response = 1;</code>
    * @return The bytes for response.

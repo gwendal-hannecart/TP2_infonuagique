@@ -30,7 +30,7 @@ public final class Test {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\ntest.proto\"I\n\nHelloWorld\022\020\n\010strHello\030\001" +
       " \001(\t\022\013\n\003age\030\002 \001(\005\022\016\n\006weight\030\003 \001(\002\022\014\n\004siz" +
       "e\030\004 \001(\002\"!\n\rHelloResponse\022\020\n\010response\030\001 \001" +
@@ -47,13 +47,13 @@ public final class Test {
     internal_static_HelloWorld_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HelloWorld_descriptor,
-        new String[] { "StrHello", "Age", "Weight", "Size", });
+        new java.lang.String[] { "StrHello", "Age", "Weight", "Size", });
     internal_static_HelloResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_HelloResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HelloResponse_descriptor,
-        new String[] { "Response", });
+        new java.lang.String[] { "Response", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -9,7 +9,7 @@ public interface HelloWorldOrBuilder extends
    * <code>string strHello = 1;</code>
    * @return The strHello.
    */
-  String getStrHello();
+  java.lang.String getStrHello();
   /**
    * <code>string strHello = 1;</code>
    * @return The bytes for strHello.
