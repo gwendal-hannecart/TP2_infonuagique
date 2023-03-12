@@ -10,14 +10,15 @@ using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 using std::cout;
-using testHelloWorld::HelloWorld;
-using testHelloWorld::HelloResponse;
-using testHelloWorld::TestHelloWorldService;
+//using testHelloWorld::HelloWorld;
+//using testHelloWorld::HelloResponse;
+//using testHelloWorld::TestHelloWorldService;
 
 /*intall on debain
  * sudo apt install libgrpc++-dev
  * sudo apt install protobuf-compiler
  *sudo apt install libgrpc-dev
+ *  sudo apt install  protobuf-compiler-grpc
  * sudo apt install
  *  sudo apt-get install  libgrpc++1
  * protoc -I=proto/ --grpc_out=proto/ --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` proto/test.proto
@@ -63,7 +64,7 @@ int main() {
 }
 
 void Run() {
-    std::string address("localhost:8080");
+    std::string address("172.19.131.59:8080");
     HelloWorldClient client(
             grpc::CreateChannel(
                     address,
@@ -76,8 +77,10 @@ void Run() {
     std::int32_t age=40;
     float size=1.70;
     float weigth=45;
-    response = client.sendRequest(name, age,size,weigth);
-    std::cout << "Answer received: " << response << std::endl;
+    while(1) {
+        response = client.sendRequest(name, age, size, weigth);
+        std::cout << "Answer received: " << response << std::endl;
+    }
 }
 
 

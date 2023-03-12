@@ -26,37 +26,35 @@
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
-namespace testHelloWorld {
-
 class TestHelloWorldService final {
  public:
   static constexpr char const* service_full_name() {
-    return "testHelloWorld.TestHelloWorldService";
+    return "TestHelloWorldService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::testHelloWorld::HelloResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>>(AsynctestHelloWorldRaw(context, request, cq));
+    virtual ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::HelloResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>>(AsynctestHelloWorldRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -67,33 +65,33 @@ class TestHelloWorldService final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::testHelloWorld::HelloResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::HelloResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::testHelloWorld::HelloResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>>(AsynctestHelloWorldRaw(context, request, cq));
+    ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::HelloResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::HelloResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::HelloResponse>>(AsynctestHelloWorldRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::HelloResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::HelloResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)>) override;
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)>) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, std::function<void(::grpc::Status)>) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -106,8 +104,8 @@ class TestHelloWorldService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::HelloResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::HelloResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_testHelloWorld_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -116,7 +114,7 @@ class TestHelloWorldService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status testHelloWorld(::grpc::ServerContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response);
+    virtual ::grpc::Status testHelloWorld(::grpc::ServerContext* context, const ::HelloWorld* request, ::HelloResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_testHelloWorld : public BaseClass {
@@ -130,11 +128,11 @@ class TestHelloWorldService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequesttestHelloWorld(::grpc::ServerContext* context, ::testHelloWorld::HelloWorld* request, ::grpc::ServerAsyncResponseWriter< ::testHelloWorld::HelloResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequesttestHelloWorld(::grpc::ServerContext* context, ::HelloWorld* request, ::grpc::ServerAsyncResponseWriter< ::HelloResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -151,38 +149,38 @@ class TestHelloWorldService final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>(
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::HelloWorld, ::HelloResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response) { return this->testHelloWorld(context, request, response); }));}
+                     context, const ::HelloWorld* request, ::HelloResponse* response) { return this->testHelloWorld(context, request, response); }));}
     void SetMessageAllocatorFor_testHelloWorld(
-        ::grpc::experimental::MessageAllocator< ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::HelloWorld, ::HelloResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>*>(handler)
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::HelloWorld, ::HelloResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_testHelloWorld() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* testHelloWorld(
-      ::grpc::CallbackServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* testHelloWorld(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -203,7 +201,7 @@ class TestHelloWorldService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -220,7 +218,7 @@ class TestHelloWorldService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -253,7 +251,7 @@ class TestHelloWorldService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -274,10 +272,10 @@ class TestHelloWorldService final {
     WithStreamedUnaryMethod_testHelloWorld() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>(
+          ::HelloWorld, ::HelloResponse>(
             [this](::grpc_impl::ServerContext* context,
                    ::grpc_impl::ServerUnaryStreamer<
-                     ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>* streamer) {
+                     ::HelloWorld, ::HelloResponse>* streamer) {
                        return this->StreamedtestHelloWorld(context,
                          streamer);
                   }));
@@ -286,19 +284,17 @@ class TestHelloWorldService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::testHelloWorld::HelloWorld* /*request*/, ::testHelloWorld::HelloResponse* /*response*/) override {
+    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::HelloWorld* /*request*/, ::HelloResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedtestHelloWorld(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::testHelloWorld::HelloWorld,::testHelloWorld::HelloResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedtestHelloWorld(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::HelloWorld,::HelloResponse>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_testHelloWorld<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_testHelloWorld<Service > StreamedService;
 };
-
-}  // namespace testHelloWorld
 
 
 #endif  // GRPC_test_2eproto__INCLUDED

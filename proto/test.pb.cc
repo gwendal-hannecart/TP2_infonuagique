@@ -11,7 +11,6 @@
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-namespace testHelloWorld {
 class HelloWorldDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<HelloWorld> _instance;
@@ -20,16 +19,15 @@ class HelloResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<HelloResponse> _instance;
 } _HelloResponse_default_instance_;
-}  // namespace testHelloWorld
 static void InitDefaultsscc_info_HelloResponse_test_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::testHelloWorld::_HelloResponse_default_instance_;
-    new (ptr) ::testHelloWorld::HelloResponse();
+    void* ptr = &::_HelloResponse_default_instance_;
+    new (ptr) ::HelloResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::testHelloWorld::HelloResponse::InitAsDefaultInstance();
+  ::HelloResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HelloResponse_test_2eproto =
@@ -39,17 +37,16 @@ static void InitDefaultsscc_info_HelloWorld_test_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::testHelloWorld::_HelloWorld_default_instance_;
-    new (ptr) ::testHelloWorld::HelloWorld();
+    void* ptr = &::_HelloWorld_default_instance_;
+    new (ptr) ::HelloWorld();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::testHelloWorld::HelloWorld::InitAsDefaultInstance();
+  ::HelloWorld::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HelloWorld_test_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_HelloWorld_test_2eproto}, {}};
 
-namespace testHelloWorld {
 
 // ===================================================================
 
@@ -63,7 +60,7 @@ HelloWorld::HelloWorld(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:testHelloWorld.HelloWorld)
+  // @@protoc_insertion_point(arena_constructor:HelloWorld)
 }
 HelloWorld::HelloWorld(const HelloWorld& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
@@ -76,7 +73,7 @@ HelloWorld::HelloWorld(const HelloWorld& from)
   ::memcpy(&age_, &from.age_,
     static_cast<size_t>(reinterpret_cast<char*>(&size_) -
     reinterpret_cast<char*>(&age_)) + sizeof(size_));
-  // @@protoc_insertion_point(copy_constructor:testHelloWorld.HelloWorld)
+  // @@protoc_insertion_point(copy_constructor:HelloWorld)
 }
 
 void HelloWorld::SharedCtor() {
@@ -88,7 +85,7 @@ void HelloWorld::SharedCtor() {
 }
 
 HelloWorld::~HelloWorld() {
-  // @@protoc_insertion_point(destructor:testHelloWorld.HelloWorld)
+  // @@protoc_insertion_point(destructor:HelloWorld)
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
@@ -114,7 +111,7 @@ const HelloWorld& HelloWorld::default_instance() {
 
 
 void HelloWorld::Clear() {
-// @@protoc_insertion_point(message_clear_start:testHelloWorld.HelloWorld)
+// @@protoc_insertion_point(message_clear_start:HelloWorld)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -188,7 +185,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* HelloWorld::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:testHelloWorld.HelloWorld)
+  // @@protoc_insertion_point(serialize_to_array_start:HelloWorld)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -197,7 +194,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_strhello().data(), static_cast<int>(this->_internal_strhello().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "testHelloWorld.HelloWorld.strHello");
+      "HelloWorld.strHello");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_strhello(), target);
   }
@@ -224,12 +221,12 @@ failure:
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:testHelloWorld.HelloWorld)
+  // @@protoc_insertion_point(serialize_to_array_end:HelloWorld)
   return target;
 }
 
 size_t HelloWorld::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:testHelloWorld.HelloWorld)
+// @@protoc_insertion_point(message_byte_size_start:HelloWorld)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -275,7 +272,7 @@ void HelloWorld::CheckTypeAndMergeFrom(
 }
 
 void HelloWorld::MergeFrom(const HelloWorld& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:testHelloWorld.HelloWorld)
+// @@protoc_insertion_point(class_specific_merge_from_start:HelloWorld)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -296,7 +293,7 @@ void HelloWorld::MergeFrom(const HelloWorld& from) {
 }
 
 void HelloWorld::CopyFrom(const HelloWorld& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:testHelloWorld.HelloWorld)
+// @@protoc_insertion_point(class_specific_copy_from_start:HelloWorld)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -319,7 +316,7 @@ void HelloWorld::InternalSwap(HelloWorld* other) {
 }
 
 std::string HelloWorld::GetTypeName() const {
-  return "testHelloWorld.HelloWorld";
+  return "HelloWorld";
 }
 
 
@@ -335,7 +332,7 @@ HelloResponse::HelloResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:testHelloWorld.HelloResponse)
+  // @@protoc_insertion_point(arena_constructor:HelloResponse)
 }
 HelloResponse::HelloResponse(const HelloResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
@@ -345,7 +342,7 @@ HelloResponse::HelloResponse(const HelloResponse& from)
     response_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_response(),
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:testHelloWorld.HelloResponse)
+  // @@protoc_insertion_point(copy_constructor:HelloResponse)
 }
 
 void HelloResponse::SharedCtor() {
@@ -354,7 +351,7 @@ void HelloResponse::SharedCtor() {
 }
 
 HelloResponse::~HelloResponse() {
-  // @@protoc_insertion_point(destructor:testHelloWorld.HelloResponse)
+  // @@protoc_insertion_point(destructor:HelloResponse)
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
 }
@@ -380,7 +377,7 @@ const HelloResponse& HelloResponse::default_instance() {
 
 
 void HelloResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:testHelloWorld.HelloResponse)
+// @@protoc_insertion_point(message_clear_start:HelloResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -430,7 +427,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* HelloResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:testHelloWorld.HelloResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:HelloResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -439,7 +436,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_response().data(), static_cast<int>(this->_internal_response().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "testHelloWorld.HelloResponse.response");
+      "HelloResponse.response");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_response(), target);
   }
@@ -448,12 +445,12 @@ failure:
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:testHelloWorld.HelloResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:HelloResponse)
   return target;
 }
 
 size_t HelloResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:testHelloWorld.HelloResponse)
+// @@protoc_insertion_point(message_byte_size_start:HelloResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -482,7 +479,7 @@ void HelloResponse::CheckTypeAndMergeFrom(
 }
 
 void HelloResponse::MergeFrom(const HelloResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:testHelloWorld.HelloResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:HelloResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -494,7 +491,7 @@ void HelloResponse::MergeFrom(const HelloResponse& from) {
 }
 
 void HelloResponse::CopyFrom(const HelloResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:testHelloWorld.HelloResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:HelloResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -511,18 +508,17 @@ void HelloResponse::InternalSwap(HelloResponse* other) {
 }
 
 std::string HelloResponse::GetTypeName() const {
-  return "testHelloWorld.HelloResponse";
+  return "HelloResponse";
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace testHelloWorld
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::testHelloWorld::HelloWorld* Arena::CreateMaybeMessage< ::testHelloWorld::HelloWorld >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::testHelloWorld::HelloWorld >(arena);
+template<> PROTOBUF_NOINLINE ::HelloWorld* Arena::CreateMaybeMessage< ::HelloWorld >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::HelloWorld >(arena);
 }
-template<> PROTOBUF_NOINLINE ::testHelloWorld::HelloResponse* Arena::CreateMaybeMessage< ::testHelloWorld::HelloResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::testHelloWorld::HelloResponse >(arena);
+template<> PROTOBUF_NOINLINE ::HelloResponse* Arena::CreateMaybeMessage< ::HelloResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::HelloResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

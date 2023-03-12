@@ -19,10 +19,9 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace testHelloWorld {
 
 static const char* TestHelloWorldService_method_names[] = {
-  "/testHelloWorld.TestHelloWorldService/testHelloWorld",
+  "/TestHelloWorldService/testHelloWorld",
 };
 
 std::unique_ptr< TestHelloWorldService::Stub> TestHelloWorldService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,43 +34,43 @@ TestHelloWorldService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterfac
   : channel_(channel), rpcmethod_testHelloWorld_(TestHelloWorldService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status TestHelloWorldService::Stub::testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::testHelloWorld::HelloResponse* response) {
+::grpc::Status TestHelloWorldService::Stub::testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld& request, ::HelloResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_testHelloWorld_, context, request, response);
 }
 
-void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)> f) {
+void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, std::move(f));
 }
 
-void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, std::function<void(::grpc::Status)> f) {
+void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, std::move(f));
 }
 
-void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::HelloWorld* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, reactor);
 }
 
-void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::testHelloWorld::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void TestHelloWorldService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::HelloResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>* TestHelloWorldService::Stub::AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::testHelloWorld::HelloResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::HelloResponse>* TestHelloWorldService::Stub::AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::HelloResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::testHelloWorld::HelloResponse>* TestHelloWorldService::Stub::PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::testHelloWorld::HelloWorld& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::testHelloWorld::HelloResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::HelloResponse>* TestHelloWorldService::Stub::PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::HelloWorld& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::HelloResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, false);
 }
 
 TestHelloWorldService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       TestHelloWorldService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< TestHelloWorldService::Service, ::testHelloWorld::HelloWorld, ::testHelloWorld::HelloResponse>(
+      new ::grpc::internal::RpcMethodHandler< TestHelloWorldService::Service, ::HelloWorld, ::HelloResponse>(
           [](TestHelloWorldService::Service* service,
              ::grpc_impl::ServerContext* ctx,
-             const ::testHelloWorld::HelloWorld* req,
-             ::testHelloWorld::HelloResponse* resp) {
+             const ::HelloWorld* req,
+             ::HelloResponse* resp) {
                return service->testHelloWorld(ctx, req, resp);
              }, this)));
 }
@@ -79,13 +78,11 @@ TestHelloWorldService::Service::Service() {
 TestHelloWorldService::Service::~Service() {
 }
 
-::grpc::Status TestHelloWorldService::Service::testHelloWorld(::grpc::ServerContext* context, const ::testHelloWorld::HelloWorld* request, ::testHelloWorld::HelloResponse* response) {
+::grpc::Status TestHelloWorldService::Service::testHelloWorld(::grpc::ServerContext* context, const ::HelloWorld* request, ::HelloResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-
-}  // namespace testHelloWorld
 
