@@ -16,6 +16,6 @@ find_library(GRPC_GRPC++_REFLECTION_LIBRARY NAMES grpc++_reflection)
 
 
 
-add_executable(testgrcp main.cpp proto/test.pb.cc proto/test.grpc.pb.cc proto/test.pb.h proto/test.grpc.pb.h)
+add_executable(testgrcp main.cpp proto/IMC.pb.h proto/IMC.pb.cc proto/IMC.grpc.pb.h proto/IMC.grpc.pb.cc)
 
 target_link_libraries(testgrcp ${GRPC_GRPC++_REFLECTION_LIBRARY} ${GRPC_GRPC++_LIBRARY} ${PROTOBUF_LIBRARY} )

@@ -1,7 +1,7 @@
 
 #include <grpcpp/grpcpp.h>
-#include "proto/test.pb.h"
-#include "proto/test.grpc.pb.h"
+#include "proto/IMC.grpc.pb.h"
+#include "proto/IMC.pb.h"
 #include <string>
 
 
@@ -21,24 +21,26 @@ using std::cout;
  *  sudo apt install  protobuf-compiler-grpc
  * sudo apt install
  *  sudo apt-get install  libgrpc++1
- * protoc -I=proto/ --grpc_out=proto/ --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` proto/test.proto
- * protoc -I=proto/ --cpp_out=proto/ proto/test.proto
+ * protoc -I=proto/ --grpc_out=proto/ --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` proto/IMC.proto
+ * protoc -I=proto/ --cpp_out=proto/ proto/IMC.proto
  * copier-coller les différents fichiers du dossier .proto dans le dossier du main
  * */
 
 class HelloWorldClient {
+private:
+    std::unique_ptr<imcPersonne::imcService::Stub> stub_;
 public:
-    HelloWorldClient(std::shared_ptr<Channel> channel) : stub_(TestHelloWorldService::NewStub(channel)) {
+    HelloWorldClient(std::shared_ptr<Channel> channel) : stub_(imcPersonne::imcService::NewStub(channel)) {
 
     }
 
    std::string sendRequest(std::string name, std::int32_t age, float size, float weight) {
-        HelloWorld request;
-        request.set_strhello("TestC++");
+        imcPersonne::imcPersonneRequest request;
+        request.set_strname("TestC++");
         request.set_age(age);
         request.set_size(size);
         request.set_weight(weight);
-        HelloResponse reply;
+        imcPersonne::imcResponse reply;
         ClientContext context;
         Status status = stub_->testHelloWorld(&context,request,&reply);
         if (status.ok()) {
@@ -49,8 +51,7 @@ public:
         }
     }
 
-private:
-    std::unique_ptr<TestHelloWorldService::Stub> stub_;
+
 };
 
 void Run();
@@ -64,7 +65,8 @@ int main() {
 }
 
 void Run() {
-    std::string address("172.19.131.59:8080");
+    std::string address("grpc.stymi.fr:50051");
+  //  std::string address("192.168.2.120:8000");
     HelloWorldClient client(
             grpc::CreateChannel(
                     address,
