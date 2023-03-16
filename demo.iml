@@ -17,6 +17,8 @@
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/java/com" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/java/com/test" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/java/com/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/grpc-java/imcPersonne" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/java/imcPersonne" isTestSource="false" />
     </content>
   </component>
 </module>
