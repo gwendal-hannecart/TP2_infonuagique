@@ -3,7 +3,7 @@ project(testgrcp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-fPIC   ")
-#ajout de merde
+
 find_path(PROTOBUF_INCLUDE_DIR google/protobuf/service.h)
 
 find_library(PROTOBUF_LIBRARY NAMES protobuf)
