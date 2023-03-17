@@ -36,27 +36,27 @@ class imcService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>>(AsynctestHelloWorldRaw(context, request, cq));
+    virtual ::grpc::Status IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>> AsyncIMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>>(AsyncIMCRequestRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>> PrepareAsyncIMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>>(PrepareAsyncIMCRequestRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -67,33 +67,33 @@ class imcService final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>* AsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::imcPersonne::imcResponse>* PrepareAsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>> AsynctestHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>>(AsynctestHelloWorldRaw(context, request, cq));
+    ::grpc::Status IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>> AsyncIMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>>(AsyncIMCRequestRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>> PrepareAsynctestHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>>(PrepareAsynctestHelloWorldRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>> PrepareAsyncIMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>>(PrepareAsyncIMCRequestRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) override;
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -106,9 +106,9 @@ class imcService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_testHelloWorld_;
+    ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* AsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* PrepareAsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_IMCRequest_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -116,35 +116,35 @@ class imcService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status testHelloWorld(::grpc::ServerContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response);
+    virtual ::grpc::Status IMCRequest(::grpc::ServerContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_testHelloWorld : public BaseClass {
+  class WithAsyncMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_testHelloWorld() {
+    WithAsyncMethod_IMCRequest() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_testHelloWorld() override {
+    ~WithAsyncMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequesttestHelloWorld(::grpc::ServerContext* context, ::imcPersonne::imcPersonneRequest* request, ::grpc::ServerAsyncResponseWriter< ::imcPersonne::imcResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestIMCRequest(::grpc::ServerContext* context, ::imcPersonne::imcPersonneRequest* request, ::grpc::ServerAsyncResponseWriter< ::imcPersonne::imcResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_testHelloWorld<Service > AsyncService;
+  typedef WithAsyncMethod_IMCRequest<Service > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_testHelloWorld : public BaseClass {
+  class ExperimentalWithCallbackMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_testHelloWorld() {
+    ExperimentalWithCallbackMethod_IMCRequest() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -158,8 +158,8 @@ class imcService final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response) { return this->testHelloWorld(context, request, response); }));}
-    void SetMessageAllocatorFor_testHelloWorld(
+                     context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response) { return this->IMCRequest(context, request, response); }));}
+    void SetMessageAllocatorFor_IMCRequest(
         ::grpc::experimental::MessageAllocator< ::imcPersonne::imcPersonneRequest, ::imcPersonne::imcResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
@@ -169,71 +169,71 @@ class imcService final {
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::imcPersonne::imcPersonneRequest, ::imcPersonne::imcResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_testHelloWorld() override {
+    ~ExperimentalWithCallbackMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* testHelloWorld(
+    virtual ::grpc::ServerUnaryReactor* IMCRequest(
       ::grpc::CallbackServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* testHelloWorld(
+    virtual ::grpc::experimental::ServerUnaryReactor* IMCRequest(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/)
     #endif
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_testHelloWorld<Service > CallbackService;
+  typedef ExperimentalWithCallbackMethod_IMCRequest<Service > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_testHelloWorld<Service > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_IMCRequest<Service > ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_testHelloWorld : public BaseClass {
+  class WithGenericMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_testHelloWorld() {
+    WithGenericMethod_IMCRequest() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_testHelloWorld() override {
+    ~WithGenericMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_testHelloWorld : public BaseClass {
+  class WithRawMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_testHelloWorld() {
+    WithRawMethod_IMCRequest() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_testHelloWorld() override {
+    ~WithRawMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequesttestHelloWorld(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestIMCRequest(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_testHelloWorld : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_testHelloWorld() {
+    ExperimentalWithRawCallbackMethod_IMCRequest() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -247,55 +247,55 @@ class imcService final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->testHelloWorld(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->IMCRequest(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_testHelloWorld() override {
+    ~ExperimentalWithRawCallbackMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* testHelloWorld(
+    virtual ::grpc::ServerUnaryReactor* IMCRequest(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* testHelloWorld(
+    virtual ::grpc::experimental::ServerUnaryReactor* IMCRequest(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_testHelloWorld : public BaseClass {
+  class WithStreamedUnaryMethod_IMCRequest : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_testHelloWorld() {
+    WithStreamedUnaryMethod_IMCRequest() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::imcPersonne::imcPersonneRequest, ::imcPersonne::imcResponse>(
             [this](::grpc_impl::ServerContext* context,
                    ::grpc_impl::ServerUnaryStreamer<
                      ::imcPersonne::imcPersonneRequest, ::imcPersonne::imcResponse>* streamer) {
-                       return this->StreamedtestHelloWorld(context,
+                       return this->StreamedIMCRequest(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_testHelloWorld() override {
+    ~WithStreamedUnaryMethod_IMCRequest() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status testHelloWorld(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
+    ::grpc::Status IMCRequest(::grpc::ServerContext* /*context*/, const ::imcPersonne::imcPersonneRequest* /*request*/, ::imcPersonne::imcResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedtestHelloWorld(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::imcPersonne::imcPersonneRequest,::imcPersonne::imcResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedIMCRequest(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::imcPersonne::imcPersonneRequest,::imcPersonne::imcResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_testHelloWorld<Service > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_IMCRequest<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_testHelloWorld<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_IMCRequest<Service > StreamedService;
 };
 
 }  // namespace imcPersonne

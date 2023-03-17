@@ -22,7 +22,7 @@
 namespace imcPersonne {
 
 static const char* imcService_method_names[] = {
-  "/imcPersonne.imcService/testHelloWorld",
+  "/imcPersonne.imcService/IMCRequest",
 };
 
 std::unique_ptr< imcService::Stub> imcService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,35 +32,35 @@ std::unique_ptr< imcService::Stub> imcService::NewStub(const std::shared_ptr< ::
 }
 
 imcService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_testHelloWorld_(imcService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_IMCRequest_(imcService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status imcService::Stub::testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_testHelloWorld_, context, request, response);
+::grpc::Status imcService::Stub::IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::imcPersonne::imcResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_IMCRequest_, context, request, response);
 }
 
-void imcService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, std::move(f));
+void imcService::Stub::experimental_async::IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_IMCRequest_, context, request, response, std::move(f));
 }
 
-void imcService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, std::move(f));
+void imcService::Stub::experimental_async::IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_IMCRequest_, context, request, response, std::move(f));
 }
 
-void imcService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, reactor);
+void imcService::Stub::experimental_async::IMCRequest(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_IMCRequest_, context, request, response, reactor);
 }
 
-void imcService::Stub::experimental_async::testHelloWorld(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_testHelloWorld_, context, request, response, reactor);
+void imcService::Stub::experimental_async::IMCRequest(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::imcPersonne::imcResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_IMCRequest_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* imcService::Stub::AsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::imcPersonne::imcResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* imcService::Stub::AsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::imcPersonne::imcResponse>::Create(channel_.get(), cq, rpcmethod_IMCRequest_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* imcService::Stub::PrepareAsynctestHelloWorldRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::imcPersonne::imcResponse>::Create(channel_.get(), cq, rpcmethod_testHelloWorld_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::imcPersonne::imcResponse>* imcService::Stub::PrepareAsyncIMCRequestRaw(::grpc::ClientContext* context, const ::imcPersonne::imcPersonneRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::imcPersonne::imcResponse>::Create(channel_.get(), cq, rpcmethod_IMCRequest_, context, request, false);
 }
 
 imcService::Service::Service() {
@@ -72,14 +72,14 @@ imcService::Service::Service() {
              ::grpc_impl::ServerContext* ctx,
              const ::imcPersonne::imcPersonneRequest* req,
              ::imcPersonne::imcResponse* resp) {
-               return service->testHelloWorld(ctx, req, resp);
+               return service->IMCRequest(ctx, req, resp);
              }, this)));
 }
 
 imcService::Service::~Service() {
 }
 
-::grpc::Status imcService::Service::testHelloWorld(::grpc::ServerContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response) {
+::grpc::Status imcService::Service::IMCRequest(::grpc::ServerContext* context, const ::imcPersonne::imcPersonneRequest* request, ::imcPersonne::imcResponse* response) {
   (void) context;
   (void) request;
   (void) response;

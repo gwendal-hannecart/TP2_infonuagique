@@ -1,88 +1,62 @@
+#include "IMCClientClass.h"
 
-#include <grpcpp/grpcpp.h>
-#include "proto/IMC.grpc.pb.h"
-#include "proto/IMC.pb.h"
-#include <string>
-
-
-
-using grpc::Channel;
-using grpc::ClientContext;
-using grpc::Status;
-using std::cout;
-//using testHelloWorld::HelloWorld;
-//using testHelloWorld::HelloResponse;
-//using testHelloWorld::TestHelloWorldService;
-
-/*intall on debain
- * sudo apt install libgrpc++-dev
- * sudo apt install protobuf-compiler
- *sudo apt install libgrpc-dev
- *  sudo apt install  protobuf-compiler-grpc
- * sudo apt install
- *  sudo apt-get install  libgrpc++1
- * protoc -I=proto/ --grpc_out=proto/ --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` proto/IMC.proto
- * protoc -I=proto/ --cpp_out=proto/ proto/IMC.proto
- * copier-coller les différents fichiers du dossier .proto dans le dossier du main
- * */
-
-class HelloWorldClient {
-private:
-    std::unique_ptr<imcPersonne::imcService::Stub> stub_;
-public:
-    HelloWorldClient(std::shared_ptr<Channel> channel) : stub_(imcPersonne::imcService::NewStub(channel)) {
-
-    }
-
-   std::string sendRequest(std::string name, std::int32_t age, float size, float weight) {
-        imcPersonne::imcPersonneRequest request;
-        request.set_strname("TestC++");
-        request.set_age(age);
-        request.set_size(size);
-        request.set_weight(weight);
-        imcPersonne::imcResponse reply;
-        ClientContext context;
-        Status status = stub_->testHelloWorld(&context,request,&reply);
-        if (status.ok()) {
-            return reply.response();
-        } else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
-            return "erreur";
-        }
-    }
-
-
-};
+#define ADDRESS "grpc.stymi.fr:50051"
 
 void Run();
 
 int main() {
-    //std::cout << "Hello, World!" << std::endl;
-//    Channel channel = grpc::Channel(__cxx11::basic_string(), nullptr, std::vector());
     Run();
-
     return 0;
 }
 
 void Run() {
-    std::string address("grpc.stymi.fr:50051");
-  //  std::string address("192.168.2.120:8000");
-    HelloWorldClient client(
-            grpc::CreateChannel(
-                    address,
-                    grpc::InsecureChannelCredentials()
-            )
-    );
+    IMCClientClass client(grpc::CreateChannel(ADDRESS,grpc::InsecureChannelCredentials())); // Création du client
 
+    // - Déclaration des variables - //
     std::string response;
-    std::string name= "nameC++";
-    std::int32_t age=40;
-    float size=1.70;
-    float weigth=45;
-    while(1) {
+    std::string name;
+    std::int32_t age;
+    float size;
+    float weigth;
+    bool on = true;
+    char continueVal;
+
+    // - Boucle infinie de fonctionnement - //
+    while(on){
+
+        // - Récolte des données utilisateur - //
+
+        std::cout << "Entrez les informations nécessaires suivante au calcul de l'IMC par le serveur gRPC :" << std::endl;
+        do{
+            std::cout << "Votre nom : ";
+            std::cin >> name;
+        }while(name.length() < 1);
+        do{
+            std::cout << "Votre age : ";
+            std::cin >> age;
+        }while(age < 0 || age > 500);
+        do{
+            std::cout << "Votre taille : ";
+            std::cin >> size;
+        }while(size < 1.0 || size > 5.0);
+        do{
+            std::cout << "Votre masse : ";
+            std::cin >> weigth;
+        }while(weigth < 1.0 || weigth > 1000.0);
+
+        // - Envoie des données au serveur et réception de la réponse - //
+
+        std::cout << "Toutes vos informations sont entrées correctement, Envoie des données ..." << std::endl;
         response = client.sendRequest(name, age, size, weigth);
-        std::cout << "Answer received: " << response << std::endl;
+        std::cout << "Réponse reçue du serveur : " << response << std::endl << std::endl;
+
+        // - Choix de continuer - //
+
+        std::cout << "Voulez-vous continuer ou quitter ? (C/q)";
+        std::cin >> continueVal;
+
+        if(continueVal != 'C' && continueVal != 'c'){ // Si on ne continue pas, peut importe la lettre on arrête
+            on = false; // On arrête la boucle infinie
+        }
     }
 }
-
-
