@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.18)
 project(testgrcp)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-fPIC   ")
-#ajout de merde
+set(CMAKE_CXX_FLAGS "-fPIC -O2")
+
 find_path(PROTOBUF_INCLUDE_DIR google/protobuf/service.h)
 
 find_library(PROTOBUF_LIBRARY NAMES protobuf)
