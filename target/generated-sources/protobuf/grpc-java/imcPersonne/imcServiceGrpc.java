@@ -28,34 +28,34 @@ public final class imcServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<imcPersonne.imcPersonneRequest,
-      imcPersonne.imcResponse> getTestHelloWorldMethod;
+      imcPersonne.imcResponse> getIMCRequestMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "testHelloWorld",
+      fullMethodName = SERVICE_NAME + '/' + "IMCRequest",
       requestType = imcPersonne.imcPersonneRequest.class,
       responseType = imcPersonne.imcResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<imcPersonne.imcPersonneRequest,
-      imcPersonne.imcResponse> getTestHelloWorldMethod() {
-    io.grpc.MethodDescriptor<imcPersonne.imcPersonneRequest, imcPersonne.imcResponse> getTestHelloWorldMethod;
-    if ((getTestHelloWorldMethod = imcServiceGrpc.getTestHelloWorldMethod) == null) {
+      imcPersonne.imcResponse> getIMCRequestMethod() {
+    io.grpc.MethodDescriptor<imcPersonne.imcPersonneRequest, imcPersonne.imcResponse> getIMCRequestMethod;
+    if ((getIMCRequestMethod = imcServiceGrpc.getIMCRequestMethod) == null) {
       synchronized (imcServiceGrpc.class) {
-        if ((getTestHelloWorldMethod = imcServiceGrpc.getTestHelloWorldMethod) == null) {
-          imcServiceGrpc.getTestHelloWorldMethod = getTestHelloWorldMethod =
+        if ((getIMCRequestMethod = imcServiceGrpc.getIMCRequestMethod) == null) {
+          imcServiceGrpc.getIMCRequestMethod = getIMCRequestMethod =
               io.grpc.MethodDescriptor.<imcPersonne.imcPersonneRequest, imcPersonne.imcResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "testHelloWorld"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "IMCRequest"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   imcPersonne.imcPersonneRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   imcPersonne.imcResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new imcServiceMethodDescriptorSupplier("testHelloWorld"))
+              .setSchemaDescriptor(new imcServiceMethodDescriptorSupplier("IMCRequest"))
               .build();
         }
       }
     }
-    return getTestHelloWorldMethod;
+    return getIMCRequestMethod;
   }
 
   /**
@@ -108,20 +108,20 @@ public final class imcServiceGrpc {
 
     /**
      */
-    public void testHelloWorld(imcPersonne.imcPersonneRequest request,
+    public void iMCRequest(imcPersonne.imcPersonneRequest request,
         io.grpc.stub.StreamObserver<imcPersonne.imcResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getTestHelloWorldMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getIMCRequestMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getTestHelloWorldMethod(),
+            getIMCRequestMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 imcPersonne.imcPersonneRequest,
                 imcPersonne.imcResponse>(
-                  this, METHODID_TEST_HELLO_WORLD)))
+                  this, METHODID_IMCREQUEST)))
           .build();
     }
   }
@@ -142,10 +142,10 @@ public final class imcServiceGrpc {
 
     /**
      */
-    public void testHelloWorld(imcPersonne.imcPersonneRequest request,
+    public void iMCRequest(imcPersonne.imcPersonneRequest request,
         io.grpc.stub.StreamObserver<imcPersonne.imcResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getTestHelloWorldMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getIMCRequestMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -165,9 +165,9 @@ public final class imcServiceGrpc {
 
     /**
      */
-    public imcPersonne.imcResponse testHelloWorld(imcPersonne.imcPersonneRequest request) {
+    public imcPersonne.imcResponse iMCRequest(imcPersonne.imcPersonneRequest request) {
       return blockingUnaryCall(
-          getChannel(), getTestHelloWorldMethod(), getCallOptions(), request);
+          getChannel(), getIMCRequestMethod(), getCallOptions(), request);
     }
   }
 
@@ -187,14 +187,14 @@ public final class imcServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<imcPersonne.imcResponse> testHelloWorld(
+    public com.google.common.util.concurrent.ListenableFuture<imcPersonne.imcResponse> iMCRequest(
         imcPersonne.imcPersonneRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getTestHelloWorldMethod(), getCallOptions()), request);
+          getChannel().newCall(getIMCRequestMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_TEST_HELLO_WORLD = 0;
+  private static final int METHODID_IMCREQUEST = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -213,8 +213,8 @@ public final class imcServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_TEST_HELLO_WORLD:
-          serviceImpl.testHelloWorld((imcPersonne.imcPersonneRequest) request,
+        case METHODID_IMCREQUEST:
+          serviceImpl.iMCRequest((imcPersonne.imcPersonneRequest) request,
               (io.grpc.stub.StreamObserver<imcPersonne.imcResponse>) responseObserver);
           break;
         default:
@@ -278,7 +278,7 @@ public final class imcServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new imcServiceFileDescriptorSupplier())
-              .addMethod(getTestHelloWorldMethod())
+              .addMethod(getIMCRequestMethod())
               .build();
         }
       }

@@ -15,5 +15,5 @@ message imcResponse {
 }
 
 service imcService {
-  rpc testHelloWorld( imcPersonneRequest) returns ( imcResponse);
+  rpc IMCRequest( imcPersonneRequest) returns ( imcResponse);
 }

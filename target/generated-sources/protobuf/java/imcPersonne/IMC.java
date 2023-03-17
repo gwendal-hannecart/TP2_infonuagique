@@ -36,10 +36,10 @@ public final class IMC {
       "\n\tIMC.proto\022\013imcPersonne\"P\n\022imcPersonneR" +
       "equest\022\017\n\007strName\030\001 \001(\t\022\013\n\003age\030\002 \001(\005\022\016\n\006" +
       "weight\030\003 \001(\002\022\014\n\004size\030\004 \001(\002\"\037\n\013imcRespons" +
-      "e\022\020\n\010response\030\001 \001(\t2Y\n\nimcService\022K\n\016tes" +
-      "tHelloWorld\022\037.imcPersonne.imcPersonneReq" +
-      "uest\032\030.imcPersonne.imcResponseB\tB\003IMCH\003P" +
-      "\001b\006proto3"
+      "e\022\020\n\010response\030\001 \001(\t2U\n\nimcService\022G\n\nIMC" +
+      "Request\022\037.imcPersonne.imcPersonneRequest" +
+      "\032\030.imcPersonne.imcResponseB\tB\003IMCH\003P\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
