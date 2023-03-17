@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 project(testgrcp)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-fPIC   ")
+set(CMAKE_CXX_FLAGS "-fPIC -02   ")
 
 find_path(PROTOBUF_INCLUDE_DIR google/protobuf/service.h)
 
