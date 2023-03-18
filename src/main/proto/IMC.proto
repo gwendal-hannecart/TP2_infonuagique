@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option optimize_for = LITE_RUNTIME;
+option java_outer_classname = "IMC";
+//package imcPersonne;
+message imcPersonneRequest {
+  string strName=1;
+  int32 age=2;
+  float weight=3;
+  float size=4;
+
+}
+message imcResponse {
+  string response = 1;
+}
+
+service imcService {
+  rpc IMCRequest( imcPersonneRequest) returns ( imcResponse);
+}
